@@ -1,3 +1,7 @@
 # misc
-tips and repo.
-See the "wiki"
+
+## See the "wiki" for tips
+
+## Repo. for various jupyter notebook examples 
+
+
