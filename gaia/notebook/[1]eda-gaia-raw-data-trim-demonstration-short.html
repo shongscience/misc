@@ -13227,7 +13227,6 @@ div#notebook {
 <span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
 <span class="n">sqlsc</span> <span class="o">=</span> <span class="n">SQLContext</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">setCheckpointDir</span><span class="p">(</span><span class="s2">&quot;hdfs://spark00:54310/tmp/checkpoints&quot;</span><span class="p">)</span>
-
 <span class="kn">import</span> <span class="nn">pyspark.sql.functions</span> <span class="k">as</span> <span class="nn">F</span>
 <span class="kn">import</span> <span class="nn">pyspark.sql.types</span> <span class="k">as</span> <span class="nn">T</span>
 <span class="kn">from</span> <span class="nn">pyspark</span> <span class="k">import</span> <span class="n">Row</span>
@@ -13306,7 +13305,6 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="c1"># Read all parquets in the directory</span>
 <span class="n">rawdf</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;header&quot;</span><span class="p">,</span><span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;recursiveFileLookup&quot;</span><span class="p">,</span><span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </pre></div>
 
@@ -13324,8 +13322,39 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 575 µs, sys: 788 µs, total: 1.36 ms
-Wall time: 2.92 s
+<pre>CPU times: user 647 µs, sys: 983 µs, total: 1.63 ms
+Wall time: 2.94 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rawdf</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;solution_id&#39;, &#39;designation&#39;, &#39;source_id&#39;, &#39;random_index&#39;, &#39;ref_epoch&#39;, &#39;ra&#39;, &#39;ra_error&#39;, &#39;dec&#39;, &#39;dec_error&#39;, &#39;parallax&#39;, &#39;parallax_error&#39;, &#39;parallax_over_error&#39;, &#39;pm&#39;, &#39;pmra&#39;, &#39;pmra_error&#39;, &#39;pmdec&#39;, &#39;pmdec_error&#39;, &#39;ra_dec_corr&#39;, &#39;ra_parallax_corr&#39;, &#39;ra_pmra_corr&#39;, &#39;ra_pmdec_corr&#39;, &#39;dec_parallax_corr&#39;, &#39;dec_pmra_corr&#39;, &#39;dec_pmdec_corr&#39;, &#39;parallax_pmra_corr&#39;, &#39;parallax_pmdec_corr&#39;, &#39;pmra_pmdec_corr&#39;, &#39;astrometric_n_obs_al&#39;, &#39;astrometric_n_obs_ac&#39;, &#39;astrometric_n_good_obs_al&#39;, &#39;astrometric_n_bad_obs_al&#39;, &#39;astrometric_gof_al&#39;, &#39;astrometric_chi2_al&#39;, &#39;astrometric_excess_noise&#39;, &#39;astrometric_excess_noise_sig&#39;, &#39;astrometric_params_solved&#39;, &#39;astrometric_primary_flag&#39;, &#39;nu_eff_used_in_astrometry&#39;, &#39;pseudocolour&#39;, &#39;pseudocolour_error&#39;, &#39;ra_pseudocolour_corr&#39;, &#39;dec_pseudocolour_corr&#39;, &#39;parallax_pseudocolour_corr&#39;, &#39;pmra_pseudocolour_corr&#39;, &#39;pmdec_pseudocolour_corr&#39;, &#39;astrometric_matched_transits&#39;, &#39;visibility_periods_used&#39;, &#39;astrometric_sigma5d_max&#39;, &#39;matched_transits&#39;, &#39;new_matched_transits&#39;, &#39;matched_transits_removed&#39;, &#39;ipd_gof_harmonic_amplitude&#39;, &#39;ipd_gof_harmonic_phase&#39;, &#39;ipd_frac_multi_peak&#39;, &#39;ipd_frac_odd_win&#39;, &#39;ruwe&#39;, &#39;scan_direction_strength_k1&#39;, &#39;scan_direction_strength_k2&#39;, &#39;scan_direction_strength_k3&#39;, &#39;scan_direction_strength_k4&#39;, &#39;scan_direction_mean_k1&#39;, &#39;scan_direction_mean_k2&#39;, &#39;scan_direction_mean_k3&#39;, &#39;scan_direction_mean_k4&#39;, &#39;duplicated_source&#39;, &#39;phot_g_n_obs&#39;, &#39;phot_g_mean_flux&#39;, &#39;phot_g_mean_flux_error&#39;, &#39;phot_g_mean_flux_over_error&#39;, &#39;phot_g_mean_mag&#39;, &#39;phot_bp_n_obs&#39;, &#39;phot_bp_mean_flux&#39;, &#39;phot_bp_mean_flux_error&#39;, &#39;phot_bp_mean_flux_over_error&#39;, &#39;phot_bp_mean_mag&#39;, &#39;phot_rp_n_obs&#39;, &#39;phot_rp_mean_flux&#39;, &#39;phot_rp_mean_flux_error&#39;, &#39;phot_rp_mean_flux_over_error&#39;, &#39;phot_rp_mean_mag&#39;, &#39;phot_bp_rp_excess_factor&#39;, &#39;phot_bp_n_contaminated_transits&#39;, &#39;phot_bp_n_blended_transits&#39;, &#39;phot_rp_n_contaminated_transits&#39;, &#39;phot_rp_n_blended_transits&#39;, &#39;phot_proc_mode&#39;, &#39;bp_rp&#39;, &#39;bp_g&#39;, &#39;g_rp&#39;, &#39;radial_velocity&#39;, &#39;radial_velocity_error&#39;, &#39;rv_method_used&#39;, &#39;rv_nb_transits&#39;, &#39;rv_nb_deblended_transits&#39;, &#39;rv_visibility_periods_used&#39;, &#39;rv_expected_sig_to_noise&#39;, &#39;rv_renormalised_gof&#39;, &#39;rv_chisq_pvalue&#39;, &#39;rv_time_duration&#39;, &#39;rv_amplitude_robust&#39;, &#39;rv_template_teff&#39;, &#39;rv_template_logg&#39;, &#39;rv_template_fe_h&#39;, &#39;rv_atm_param_origin&#39;, &#39;vbroad&#39;, &#39;vbroad_error&#39;, &#39;vbroad_nb_transits&#39;, &#39;grvs_mag&#39;, &#39;grvs_mag_error&#39;, &#39;grvs_mag_nb_transits&#39;, &#39;rvs_spec_sig_to_noise&#39;, &#39;phot_variable_flag&#39;, &#39;l&#39;, &#39;b&#39;, &#39;ecl_lon&#39;, &#39;ecl_lat&#39;, &#39;in_qso_candidates&#39;, &#39;in_galaxy_candidates&#39;, &#39;non_single_star&#39;, &#39;has_xp_continuous&#39;, &#39;has_xp_sampled&#39;, &#39;has_rvs&#39;, &#39;has_epoch_photometry&#39;, &#39;has_epoch_rv&#39;, &#39;has_mcmc_gspphot&#39;, &#39;has_mcmc_msc&#39;, &#39;in_andromeda_survey&#39;, &#39;classprob_dsc_combmod_quasar&#39;, &#39;classprob_dsc_combmod_galaxy&#39;, &#39;classprob_dsc_combmod_star&#39;, &#39;teff_gspphot&#39;, &#39;teff_gspphot_lower&#39;, &#39;teff_gspphot_upper&#39;, &#39;logg_gspphot&#39;, &#39;logg_gspphot_lower&#39;, &#39;logg_gspphot_upper&#39;, &#39;mh_gspphot&#39;, &#39;mh_gspphot_lower&#39;, &#39;mh_gspphot_upper&#39;, &#39;distance_gspphot&#39;, &#39;distance_gspphot_lower&#39;, &#39;distance_gspphot_upper&#39;, &#39;azero_gspphot&#39;, &#39;azero_gspphot_lower&#39;, &#39;azero_gspphot_upper&#39;, &#39;ag_gspphot&#39;, &#39;ag_gspphot_lower&#39;, &#39;ag_gspphot_upper&#39;, &#39;ebpminrp_gspphot&#39;, &#39;ebpminrp_gspphot_lower&#39;, &#39;ebpminrp_gspphot_upper&#39;, &#39;libname_gspphot&#39;]
 </pre>
 </div>
 </div>
@@ -13343,7 +13372,7 @@ Wall time: 2.92 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">rawdf</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">,</span><span class="s1">&#39;parallax&#39;</span><span class="p">,</span><span class="s1">&#39;pm&#39;</span><span class="p">,</span><span class="s1">&#39;pmra&#39;</span><span class="p">,</span><span class="s1">&#39;pmdec&#39;</span><span class="p">,</span> \
@@ -13359,7 +13388,7 @@ Wall time: 2.92 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
@@ -13375,7 +13404,7 @@ Wall time: 2.92 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13392,7 +13421,7 @@ Wall time: 2.92 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13413,15 +13442,15 @@ Wall time: 2.92 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 14.1 ms, sys: 10.9 ms, total: 25 ms
-Wall time: 2min 19s
+<pre>CPU times: user 19.1 ms, sys: 7.88 ms, total: 26.9 ms
+Wall time: 2min 27s
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13463,32 +13492,32 @@ Wall time: 2min 19s
     <tr>
       <th>source_id</th>
       <td>1811709771</td>
-      <td>4.3515610592999409E18</td>
-      <td>1.64011514434601882E18</td>
+      <td>4.3515610592999419E18</td>
+      <td>1.64011514434601754E18</td>
       <td>4295806720</td>
       <td>6917528997577384320</td>
     </tr>
     <tr>
       <th>ra</th>
       <td>1811709771</td>
-      <td>229.12434364249663</td>
-      <td>77.78510767878042</td>
+      <td>229.12434364249697</td>
+      <td>77.78510767878052</td>
       <td>3.4096239126626443E-7</td>
       <td>359.999999939548</td>
     </tr>
     <tr>
       <th>dec</th>
       <td>1811709771</td>
-      <td>-18.374270531226514</td>
-      <td>36.539410267623325</td>
+      <td>-18.374270531226486</td>
+      <td>36.53941026762336</td>
       <td>-89.99287859590359</td>
       <td>89.99005196682685</td>
     </tr>
     <tr>
       <th>parallax</th>
       <td>1467744818</td>
-      <td>0.3663611304767707</td>
-      <td>1.026171802589476</td>
+      <td>0.36636113047677044</td>
+      <td>1.0261718025894804</td>
       <td>-187.02939637423492</td>
       <td>768.0665391873573</td>
     </tr>
@@ -13521,7 +13550,7 @@ Wall time: 2min 19s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13542,8 +13571,8 @@ Wall time: 2min 19s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 914 µs, sys: 0 ns, total: 914 µs
-Wall time: 13.5 ms
+<pre>CPU times: user 840 µs, sys: 0 ns, total: 840 µs
+Wall time: 13.9 ms
 </pre>
 </div>
 </div>
@@ -13554,7 +13583,7 @@ Wall time: 13.5 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -13570,7 +13599,7 @@ Wall time: 13.5 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13612,24 +13641,24 @@ Wall time: 13.5 ms
     <tr>
       <th>source_id</th>
       <td>1304979431</td>
-      <td>4.313247558937558E18</td>
-      <td>1.72159960843961037E18</td>
+      <td>4.3132475589375555E18</td>
+      <td>1.72159960843960218E18</td>
       <td>4295806720</td>
       <td>6917528997577384320</td>
     </tr>
     <tr>
       <th>ra</th>
       <td>1304979431</td>
-      <td>224.78295306096962</td>
-      <td>81.1800328419981</td>
+      <td>224.7829530609686</td>
+      <td>81.18003284199804</td>
       <td>3.4096239126626443E-7</td>
       <td>359.999999939548</td>
     </tr>
     <tr>
       <th>dec</th>
       <td>1304979431</td>
-      <td>-16.59583009910177</td>
-      <td>38.30390216592705</td>
+      <td>-16.595830099101654</td>
+      <td>38.30390216592702</td>
       <td>-89.99287859590359</td>
       <td>89.99005196682685</td>
     </tr>
@@ -13660,236 +13689,6 @@ Wall time: 13.5 ms
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">healpy</span> <span class="k">as</span> <span class="nn">hp</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span>
-<span class="n">rawstardf</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1e+03 ns, sys: 1e+03 ns, total: 2 µs
-Wall time: 3.34 µs
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>source_id</th>
-      <td>1.235499e+17</td>
-      <td>1.235499e+17</td>
-      <td>1.235499e+17</td>
-      <td>1.235500e+17</td>
-      <td>1.235500e+17</td>
-    </tr>
-    <tr>
-      <th>ra</th>
-      <td>4.833770e+01</td>
-      <td>4.834184e+01</td>
-      <td>4.834453e+01</td>
-      <td>4.832837e+01</td>
-      <td>4.832515e+01</td>
-    </tr>
-    <tr>
-      <th>dec</th>
-      <td>3.157786e+01</td>
-      <td>3.157342e+01</td>
-      <td>3.157467e+01</td>
-      <td>3.157816e+01</td>
-      <td>3.158542e+01</td>
-    </tr>
-    <tr>
-      <th>parallax</th>
-      <td>5.732078e-01</td>
-      <td>-6.411236e-01</td>
-      <td>1.811554e-01</td>
-      <td>6.670219e-01</td>
-      <td>4.386407e-01</td>
-    </tr>
-    <tr>
-      <th>pm</th>
-      <td>8.913921e+00</td>
-      <td>3.693078e+00</td>
-      <td>2.319099e+00</td>
-      <td>4.122826e-01</td>
-      <td>4.096119e+00</td>
-    </tr>
-    <tr>
-      <th>pmra</th>
-      <td>3.769940e+00</td>
-      <td>3.510850e+00</td>
-      <td>1.302740e+00</td>
-      <td>-5.594886e-02</td>
-      <td>4.047537e+00</td>
-    </tr>
-    <tr>
-      <th>pmdec</th>
-      <td>-8.077471e+00</td>
-      <td>-1.145756e+00</td>
-      <td>-1.918616e+00</td>
-      <td>-4.084687e-01</td>
-      <td>6.289990e-01</td>
-    </tr>
-    <tr>
-      <th>astrometric_excess_noise</th>
-      <td>0.000000e+00</td>
-      <td>0.000000e+00</td>
-      <td>1.783412e-01</td>
-      <td>0.000000e+00</td>
-      <td>1.908666e-01</td>
-    </tr>
-    <tr>
-      <th>ruwe</th>
-      <td>9.899687e-01</td>
-      <td>9.611782e-01</td>
-      <td>1.054118e+00</td>
-      <td>9.888504e-01</td>
-      <td>1.034428e+00</td>
-    </tr>
-    <tr>
-      <th>classprob_dsc_combmod_quasar</th>
-      <td>1.021373e-13</td>
-      <td>1.305954e-10</td>
-      <td>1.022009e-13</td>
-      <td>1.451008e-05</td>
-      <td>8.037912e-11</td>
-    </tr>
-    <tr>
-      <th>classprob_dsc_combmod_galaxy</th>
-      <td>6.125833e-11</td>
-      <td>6.352722e-13</td>
-      <td>5.107277e-13</td>
-      <td>1.228232e-12</td>
-      <td>8.197585e-11</td>
-    </tr>
-    <tr>
-      <th>classprob_dsc_combmod_star</th>
-      <td>9.999959e-01</td>
-      <td>9.999979e-01</td>
-      <td>9.999824e-01</td>
-      <td>9.999820e-01</td>
-      <td>9.999893e-01</td>
-    </tr>
-    <tr>
-      <th>ra_error</th>
-      <td>1.635127e-01</td>
-      <td>4.506115e-01</td>
-      <td>6.746472e-02</td>
-      <td>5.778494e-01</td>
-      <td>2.071754e-01</td>
-    </tr>
-    <tr>
-      <th>dec_error</th>
-      <td>1.747733e-01</td>
-      <td>4.827825e-01</td>
-      <td>7.040421e-02</td>
-      <td>7.035683e-01</td>
-      <td>2.250034e-01</td>
-    </tr>
-    <tr>
-      <th>parallax_error</th>
-      <td>2.008342e-01</td>
-      <td>5.412629e-01</td>
-      <td>8.233849e-02</td>
-      <td>6.102571e-01</td>
-      <td>2.465880e-01</td>
-    </tr>
-    <tr>
-      <th>parallax_over_error</th>
-      <td>2.854135e+00</td>
-      <td>-1.184496e+00</td>
-      <td>2.200130e+00</td>
-      <td>1.093018e+00</td>
-      <td>1.778841e+00</td>
-    </tr>
-    <tr>
-      <th>pmra_error</th>
-      <td>2.353517e-01</td>
-      <td>6.325144e-01</td>
-      <td>9.503061e-02</td>
-      <td>1.015107e+00</td>
-      <td>2.890887e-01</td>
-    </tr>
-    <tr>
-      <th>pmdec_error</th>
-      <td>2.461371e-01</td>
-      <td>6.738033e-01</td>
-      <td>9.543303e-02</td>
-      <td>1.228983e+00</td>
-      <td>3.091583e-01</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13899,10 +13698,11 @@ Wall time: 3.34 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">NSIDE</span> <span class="o">=</span> <span class="mi">512</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">healpy</span> <span class="k">as</span> <span class="nn">hp</span>
+<span class="n">NSIDE</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="n">NPIX</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="n">NSIDE</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">NPIX</span><span class="p">)</span>
 </pre></div>
@@ -13939,7 +13739,7 @@ Wall time: 3.34 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13957,7 +13757,7 @@ Wall time: 3.34 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
@@ -13978,7 +13778,7 @@ Wall time: 3.34 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13999,8 +13799,8 @@ Wall time: 3.34 µs
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 3.25 ms, sys: 0 ns, total: 3.25 ms
-Wall time: 17.1 ms
+<pre>CPU times: user 3.01 ms, sys: 0 ns, total: 3.01 ms
+Wall time: 18.9 ms
 </pre>
 </div>
 </div>
@@ -14011,7 +13811,7 @@ Wall time: 17.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
@@ -14027,7 +13827,7 @@ Wall time: 17.1 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14044,7 +13844,7 @@ Wall time: 17.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span><span class="p">[</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">,</span><span class="s1">&#39;ipx512nested&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -14060,7 +13860,7 @@ Wall time: 17.1 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -14133,7 +13933,7 @@ Wall time: 17.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstarcountdf</span> <span class="o">=</span> <span class="n">rawstardf</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;ipx512nested&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">))</span>
@@ -14153,7 +13953,7 @@ Wall time: 17.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14174,8 +13974,8 @@ Wall time: 17.1 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 58 ms, sys: 111 ms, total: 169 ms
-Wall time: 3.65 s
+<pre>CPU times: user 64.1 ms, sys: 101 ms, total: 165 ms
+Wall time: 3.75 s
 </pre>
 </div>
 </div>
@@ -14186,7 +13986,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">RangeIndex</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">NPIX</span><span class="p">)</span>
@@ -14200,7 +14000,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hp</span><span class="o">.</span><span class="n">mollview</span><span class="p">(</span><span class="n">filledpdf</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Gaia DR3: Star Density (NSIDE=512)&#39;</span><span class="p">,</span><span class="n">xsize</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
@@ -14249,13 +14049,13 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="n">SkyCoord</span>
 <span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
 <span class="k">def</span> <span class="nf">getGalacticCoordinates</span><span class="p">(</span><span class="n">inra</span><span class="p">,</span><span class="n">indec</span><span class="p">):</span>
-    <span class="n">tmp_eclip</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">inra</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span><span class="n">indec</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="s1">&#39;barycentrictrueecliptic&#39;</span><span class="p">)</span>
+    <span class="n">tmp_eclip</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">inra</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span><span class="n">indec</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="s1">&#39;icrs&#39;</span><span class="p">)</span>
     <span class="n">tmp_gal</span> <span class="o">=</span> <span class="n">tmp_eclip</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="s1">&#39;galactic&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp_gal</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">value</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp_gal</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">)]</span>
 </pre></div>
@@ -14267,7 +14067,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Define UDF for pyspark </span>
@@ -14281,7 +14081,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">getGalacticCoordinates</span><span class="p">(</span><span class="mf">61.181783</span><span class="p">,</span><span class="mf">16.360603</span><span class="p">)</span>
@@ -14297,13 +14097,13 @@ Wall time: 3.65 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[156.93869947124142, -15.160067971564013]</pre>
+<pre>[175.85141246817847, -26.06453750628076]</pre>
 </div>
 
 </div>
@@ -14330,7 +14130,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">equatorial_to_galactic</span><span class="p">(</span><span class="n">right_ascension</span><span class="p">,</span> <span class="n">declination</span><span class="p">,</span> \
@@ -14353,7 +14153,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">equatorial_to_galactic</span><span class="p">(</span><span class="mf">61.181783</span><span class="p">,</span> <span class="mf">16.360603</span><span class="p">)</span>
@@ -14369,7 +14169,7 @@ Wall time: 3.65 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -14386,7 +14186,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Define UDF for pyspark </span>
@@ -14397,15 +14197,6 @@ Wall time: 3.65 s
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>Weird.. the <code>Skycoord</code> result is different from the others.</p>
-</blockquote>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14423,7 +14214,7 @@ Wall time: 3.65 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14448,8 +14239,8 @@ Wall time: 3.65 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 3.8 ms, sys: 0 ns, total: 3.8 ms
-Wall time: 30.9 ms
+<pre>CPU times: user 3.3 ms, sys: 0 ns, total: 3.3 ms
+Wall time: 27.2 ms
 </pre>
 </div>
 </div>
@@ -14457,33 +14248,6 @@ Wall time: 30.9 ms
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#%%time</span>
-<span class="c1">#rawstardf.collect()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>First, I got an error message related to <code>spark.driver.maxResultSize</code>. <br>
-I put this option when I launch the spark shell <code>--conf spark.driver.maxResultSize=32g</code> <br> 
-<strong>Beware: Collect is a dangerous command, since it collect all data to the master(driver) node. 
-If the data size is much larger than the master's physical memory, you should save the data to a file in hdfs, 
-not collecting to your master(driver) node.</strong></p>
-</blockquote>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14494,7 +14258,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span> <span class="o">=</span> <span class="n">rawstardf</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">&#39;gal_ipx512nested&#39;</span><span class="p">,</span><span class="n">healpixudf</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;gal_b&#39;</span><span class="p">),</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;gal_l&#39;</span><span class="p">)))</span>
@@ -14507,7 +14271,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
@@ -14523,7 +14287,7 @@ not collecting to your master(driver) node.</strong></p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -14547,7 +14311,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">outfilename</span> <span class="o">=</span> \
@@ -14561,7 +14325,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14582,8 +14346,8 @@ not collecting to your master(driver) node.</strong></p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 291 ms, sys: 188 ms, total: 480 ms
-Wall time: 12min 19s
+<pre>CPU times: user 278 ms, sys: 207 ms, total: 485 ms
+Wall time: 12min 5s
 </pre>
 </div>
 </div>
@@ -14601,7 +14365,7 @@ Wall time: 12min 19s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">galrawstarcountdf</span> <span class="o">=</span> <span class="n">rawstardf</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;gal_ipx512nested&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">))</span>
@@ -14614,7 +14378,7 @@ Wall time: 12min 19s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">RangeIndex</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">NPIX</span><span class="p">)</span>
@@ -14627,7 +14391,7 @@ Wall time: 12min 19s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14650,8 +14414,8 @@ Wall time: 12min 19s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 130 ms, sys: 92.5 ms, total: 223 ms
-Wall time: 2.66 s
+<pre>CPU times: user 120 ms, sys: 127 ms, total: 246 ms
+Wall time: 2.71 s
 </pre>
 </div>
 </div>
@@ -14663,7 +14427,7 @@ Wall time: 2.66 s
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>The running time for <code>galcoordfastudf</code> is <code>12min</code>,<br> while <code>galcoordudf</code> 6 hours</p>
+<blockquote><p>The running time for <code>galcoordfastudf</code> is <code>12min</code>, while <code>galcoordudf</code> <code>6hours</code></p>
 </blockquote>
 
 </div>
@@ -14671,7 +14435,7 @@ Wall time: 2.66 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hp</span><span class="o">.</span><span class="n">mollview</span><span class="p">(</span><span class="n">tmppdf</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> \
