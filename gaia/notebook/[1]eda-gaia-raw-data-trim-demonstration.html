@@ -13280,39 +13280,6 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spark.driver.maxResultSize&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;32g&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13322,7 +13289,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
@@ -13336,7 +13303,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> \
@@ -13357,7 +13324,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13379,8 +13346,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 582 µs, sys: 882 µs, total: 1.46 ms
-Wall time: 3.39 s
+<pre>CPU times: user 1.45 ms, sys: 0 ns, total: 1.45 ms
+Wall time: 2.92 s
 </pre>
 </div>
 </div>
@@ -13398,7 +13365,7 @@ Wall time: 3.39 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#rawdf.printSchema()</span>
@@ -13430,7 +13397,7 @@ Wall time: 3.39 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">rawdf</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">,</span><span class="s1">&#39;parallax&#39;</span><span class="p">,</span><span class="s1">&#39;pm&#39;</span><span class="p">,</span><span class="s1">&#39;pmra&#39;</span><span class="p">,</span><span class="s1">&#39;pmdec&#39;</span><span class="p">,</span> \
@@ -13447,7 +13414,7 @@ Wall time: 3.39 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
@@ -13463,7 +13430,7 @@ Wall time: 3.39 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13480,7 +13447,7 @@ Wall time: 3.39 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13501,15 +13468,15 @@ Wall time: 3.39 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 17.9 ms, sys: 10.6 ms, total: 28.5 ms
-Wall time: 2min 38s
+<pre>CPU times: user 19.3 ms, sys: 10.1 ms, total: 29.4 ms
+Wall time: 2min 36s
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13551,32 +13518,32 @@ Wall time: 2min 38s
     <tr>
       <th>source_id</th>
       <td>1811709771</td>
-      <td>4.3515610592999409E18</td>
-      <td>1.64011514434601626E18</td>
+      <td>4.3515610592999311E18</td>
+      <td>1.64011514434601754E18</td>
       <td>4295806720</td>
       <td>6917528997577384320</td>
     </tr>
     <tr>
       <th>ra</th>
       <td>1811709771</td>
-      <td>229.12434364249728</td>
-      <td>77.78510767878045</td>
+      <td>229.12434364249697</td>
+      <td>77.78510767878046</td>
       <td>3.4096239126626443E-7</td>
       <td>359.999999939548</td>
     </tr>
     <tr>
       <th>dec</th>
       <td>1811709771</td>
-      <td>-18.37427053122651</td>
-      <td>36.53941026762329</td>
+      <td>-18.374270531226486</td>
+      <td>36.53941026762338</td>
       <td>-89.99287859590359</td>
       <td>89.99005196682685</td>
     </tr>
     <tr>
       <th>parallax</th>
       <td>1467744818</td>
-      <td>0.3663611304767715</td>
-      <td>1.026171802589477</td>
+      <td>0.366361130476772</td>
+      <td>1.0261718025894793</td>
       <td>-187.02939637423492</td>
       <td>768.0665391873573</td>
     </tr>
@@ -13609,7 +13576,7 @@ Wall time: 2min 38s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13630,8 +13597,8 @@ Wall time: 2min 38s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 0 ns, sys: 734 µs, total: 734 µs
-Wall time: 12.4 ms
+<pre>CPU times: user 297 µs, sys: 404 µs, total: 701 µs
+Wall time: 10.8 ms
 </pre>
 </div>
 </div>
@@ -13642,11 +13609,11 @@ Wall time: 12.4 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">rawstardf</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">,</span><span class="s1">&#39;parallax&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">rawstardf</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13663,15 +13630,15 @@ Wall time: 12.4 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 5.02 ms, sys: 1.43 ms, total: 6.45 ms
-Wall time: 2.71 s
+<pre>CPU times: user 2.77 ms, sys: 3.29 ms, total: 6.06 ms
+Wall time: 2.35 s
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13713,34 +13680,26 @@ Wall time: 2.71 s
     <tr>
       <th>source_id</th>
       <td>1304979431</td>
-      <td>4.3132475589375683E18</td>
-      <td>1.72159960843961472E18</td>
+      <td>4.3132475589375841E18</td>
+      <td>1.72159960843960781E18</td>
       <td>4295806720</td>
       <td>6917528997577384320</td>
     </tr>
     <tr>
       <th>ra</th>
       <td>1304979431</td>
-      <td>224.7829530609694</td>
-      <td>81.18003284199818</td>
+      <td>224.7829530609692</td>
+      <td>81.18003284199813</td>
       <td>3.4096239126626443E-7</td>
       <td>359.999999939548</td>
     </tr>
     <tr>
       <th>dec</th>
       <td>1304979431</td>
-      <td>-16.595830099101704</td>
-      <td>38.303902165926985</td>
+      <td>-16.595830099101708</td>
+      <td>38.30390216592705</td>
       <td>-89.99287859590359</td>
       <td>89.99005196682685</td>
-    </tr>
-    <tr>
-      <th>parallax</th>
-      <td>1304979431</td>
-      <td>0.37259322671276185</td>
-      <td>0.8913077253711833</td>
-      <td>-117.44857690096015</td>
-      <td>768.0665391873573</td>
     </tr>
   </tbody>
 </table>
@@ -13765,14 +13724,14 @@ Wall time: 2.71 s
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="HealPix-Visualization">HealPix Visualization<a class="anchor-link" href="#HealPix-Visualization">&#182;</a></h3>
+<h2 id="HealPix-Visualization">HealPix Visualization<a class="anchor-link" href="#HealPix-Visualization">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>healpy: <a href="https://healpy.readthedocs.io/en/latest/tutorial.html">https://healpy.readthedocs.io/en/latest/tutorial.html</a> <br><br>
+<blockquote><p>healpy: <a href="https://healpy.readthedocs.io/en/latest/tutorial.html">https://healpy.readthedocs.io/en/latest/tutorial.html</a> <br>
 The choices of <code>nside</code> and projection method such as <code>mollview</code>(?) should be settled.</p>
 </blockquote>
 
@@ -13781,7 +13740,7 @@ The choices of <code>nside</code> and projection method such as <code>mollview</
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">healpy</span> <span class="k">as</span> <span class="nn">hp</span>
@@ -13794,7 +13753,7 @@ The choices of <code>nside</code> and projection method such as <code>mollview</
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span>
@@ -13815,15 +13774,15 @@ The choices of <code>nside</code> and projection method such as <code>mollview</
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1 µs, sys: 1 µs, total: 2 µs
-Wall time: 3.1 µs
+<pre>CPU times: user 1e+03 ns, sys: 1e+03 ns, total: 2 µs
+Wall time: 3.58 µs
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -13856,147 +13815,147 @@ Wall time: 3.1 µs
   <tbody>
     <tr>
       <th>source_id</th>
-      <td>6.995533e+16</td>
-      <td>6.995533e+16</td>
-      <td>6.995537e+16</td>
-      <td>6.995540e+16</td>
-      <td>6.995543e+16</td>
+      <td>4.295807e+09</td>
+      <td>3.436113e+10</td>
+      <td>3.865554e+10</td>
+      <td>3.092381e+11</td>
+      <td>3.435974e+11</td>
     </tr>
     <tr>
       <th>ra</th>
-      <td>5.712550e+01</td>
-      <td>5.712812e+01</td>
-      <td>5.714365e+01</td>
-      <td>5.711554e+01</td>
-      <td>5.712791e+01</td>
+      <td>4.499616e+01</td>
+      <td>4.500432e+01</td>
+      <td>4.500498e+01</td>
+      <td>4.499504e+01</td>
+      <td>4.496390e+01</td>
     </tr>
     <tr>
       <th>dec</th>
-      <td>2.545498e+01</td>
-      <td>2.546605e+01</td>
-      <td>2.546734e+01</td>
-      <td>2.546915e+01</td>
-      <td>2.547651e+01</td>
+      <td>5.615226e-03</td>
+      <td>2.104776e-02</td>
+      <td>1.987968e-02</td>
+      <td>3.815170e-02</td>
+      <td>4.359494e-02</td>
     </tr>
     <tr>
       <th>parallax</th>
-      <td>-1.737387e-01</td>
-      <td>1.068897e+00</td>
-      <td>1.076546e+00</td>
-      <td>1.020764e+00</td>
-      <td>-6.155467e-02</td>
+      <td>3.543306e-01</td>
+      <td>3.235017e+00</td>
+      <td>3.139170e+00</td>
+      <td>1.383150e+00</td>
+      <td>1.961477e-01</td>
     </tr>
     <tr>
       <th>pm</th>
-      <td>9.068177e-01</td>
-      <td>6.966490e+00</td>
-      <td>4.768516e+00</td>
-      <td>2.924063e+00</td>
-      <td>2.073758e+00</td>
+      <td>1.261648e+01</td>
+      <td>3.523051e+01</td>
+      <td>3.530821e+01</td>
+      <td>1.472751e+00</td>
+      <td>6.845276e+00</td>
     </tr>
     <tr>
       <th>pmra</th>
-      <td>-3.517915e-01</td>
-      <td>1.431958e+00</td>
-      <td>-4.754840e+00</td>
-      <td>1.637444e+00</td>
-      <td>1.218185e+00</td>
+      <td>1.193835e+01</td>
+      <td>2.951834e+01</td>
+      <td>2.968634e+01</td>
+      <td>7.103391e-01</td>
+      <td>6.567299e+00</td>
     </tr>
     <tr>
       <th>pmdec</th>
-      <td>-8.357997e-01</td>
-      <td>6.817733e+00</td>
-      <td>3.608950e-01</td>
-      <td>-2.422586e+00</td>
-      <td>1.678243e+00</td>
+      <td>-4.080619e+00</td>
+      <td>1.923165e+01</td>
+      <td>1.911520e+01</td>
+      <td>-1.290122e+00</td>
+      <td>-1.930905e+00</td>
     </tr>
     <tr>
       <th>astrometric_excess_noise</th>
+      <td>3.806193e-01</td>
+      <td>2.674134e-01</td>
       <td>0.000000e+00</td>
-      <td>1.224772e+00</td>
-      <td>1.681037e+00</td>
       <td>0.000000e+00</td>
-      <td>1.268187e+00</td>
+      <td>0.000000e+00</td>
     </tr>
     <tr>
       <th>ruwe</th>
-      <td>1.001262e+00</td>
-      <td>1.043363e+00</td>
-      <td>1.064387e+00</td>
-      <td>9.902201e-01</td>
-      <td>1.090433e+00</td>
+      <td>1.142952e+00</td>
+      <td>1.057890e+00</td>
+      <td>1.012191e+00</td>
+      <td>9.856941e-01</td>
+      <td>9.789714e-01</td>
     </tr>
     <tr>
       <th>classprob_dsc_combmod_quasar</th>
-      <td>3.131102e-07</td>
-      <td>4.677475e-11</td>
-      <td>6.004605e-10</td>
-      <td>3.581389e-07</td>
-      <td>4.225345e-10</td>
+      <td>3.035489e-11</td>
+      <td>1.082019e-13</td>
+      <td>1.039826e-13</td>
+      <td>3.476444e-10</td>
+      <td>2.770367e-11</td>
     </tr>
     <tr>
       <th>classprob_dsc_combmod_galaxy</th>
-      <td>5.192115e-13</td>
-      <td>5.139054e-13</td>
-      <td>9.387368e-13</td>
-      <td>1.692079e-08</td>
-      <td>6.153660e-11</td>
+      <td>7.045791e-13</td>
+      <td>5.682676e-13</td>
+      <td>5.193881e-13</td>
+      <td>5.879542e-10</td>
+      <td>5.131301e-13</td>
     </tr>
     <tr>
       <th>classprob_dsc_combmod_star</th>
-      <td>9.999601e-01</td>
-      <td>9.999944e-01</td>
-      <td>9.999957e-01</td>
-      <td>9.999925e-01</td>
-      <td>9.999990e-01</td>
+      <td>9.999876e-01</td>
+      <td>9.993886e-01</td>
+      <td>9.998059e-01</td>
+      <td>9.999797e-01</td>
+      <td>9.999906e-01</td>
     </tr>
     <tr>
       <th>ra_error</th>
-      <td>2.665769e-01</td>
-      <td>6.819070e-01</td>
-      <td>8.469937e-01</td>
-      <td>6.185729e-01</td>
-      <td>6.459383e-01</td>
+      <td>1.016183e-01</td>
+      <td>9.731972e-02</td>
+      <td>1.788540e-02</td>
+      <td>3.220395e-01</td>
+      <td>1.171760e-01</td>
     </tr>
     <tr>
       <th>dec_error</th>
-      <td>1.669000e-01</td>
-      <td>4.703340e-01</td>
-      <td>5.369210e-01</td>
-      <td>3.966126e-01</td>
-      <td>3.996187e-01</td>
+      <td>1.013339e-01</td>
+      <td>1.017530e-01</td>
+      <td>1.877158e-02</td>
+      <td>2.835049e-01</td>
+      <td>1.090039e-01</td>
     </tr>
     <tr>
       <th>parallax_error</th>
-      <td>2.776369e-01</td>
-      <td>7.598482e-01</td>
-      <td>8.768467e-01</td>
-      <td>7.045996e-01</td>
-      <td>6.586871e-01</td>
+      <td>1.226638e-01</td>
+      <td>1.204503e-01</td>
+      <td>2.234741e-02</td>
+      <td>3.679067e-01</td>
+      <td>1.334645e-01</td>
     </tr>
     <tr>
       <th>parallax_over_error</th>
-      <td>-6.257765e-01</td>
-      <td>1.406725e+00</td>
-      <td>1.227747e+00</td>
-      <td>1.448715e+00</td>
-      <td>-9.345056e-02</td>
+      <td>2.888632e+00</td>
+      <td>2.685770e+01</td>
+      <td>1.404713e+02</td>
+      <td>3.759512e+00</td>
+      <td>1.469662e+00</td>
     </tr>
     <tr>
       <th>pmra_error</th>
-      <td>3.449607e-01</td>
-      <td>8.483784e-01</td>
-      <td>1.144199e+00</td>
-      <td>8.729244e-01</td>
-      <td>8.425602e-01</td>
+      <td>1.379423e-01</td>
+      <td>1.336928e-01</td>
+      <td>2.377173e-02</td>
+      <td>4.276462e-01</td>
+      <td>1.545800e-01</td>
     </tr>
     <tr>
       <th>pmdec_error</th>
-      <td>2.196903e-01</td>
-      <td>6.269308e-01</td>
-      <td>7.760759e-01</td>
-      <td>5.352161e-01</td>
-      <td>5.612835e-01</td>
+      <td>1.331698e-01</td>
+      <td>1.339218e-01</td>
+      <td>2.383038e-02</td>
+      <td>3.647294e-01</td>
+      <td>1.360506e-01</td>
     </tr>
   </tbody>
 </table>
@@ -14018,7 +13977,7 @@ Wall time: 3.1 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">NSIDE</span> <span class="o">=</span> <span class="mi">512</span>
@@ -14067,7 +14026,7 @@ Wall time: 3.1 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14088,7 +14047,7 @@ Wall time: 3.1 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
@@ -14109,7 +14068,7 @@ Wall time: 3.1 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14130,8 +14089,8 @@ Wall time: 3.1 µs
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 3.23 ms, sys: 0 ns, total: 3.23 ms
-Wall time: 16.3 ms
+<pre>CPU times: user 2.99 ms, sys: 0 ns, total: 2.99 ms
+Wall time: 17.7 ms
 </pre>
 </div>
 </div>
@@ -14142,7 +14101,7 @@ Wall time: 16.3 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
@@ -14158,7 +14117,7 @@ Wall time: 16.3 ms
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -14175,7 +14134,7 @@ Wall time: 16.3 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span>
@@ -14196,15 +14155,15 @@ Wall time: 16.3 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 2 µs, sys: 0 ns, total: 2 µs
-Wall time: 4.05 µs
+<pre>CPU times: user 1 µs, sys: 0 ns, total: 1 µs
+Wall time: 2.86 µs
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -14235,27 +14194,27 @@ Wall time: 4.05 µs
   <tbody>
     <tr>
       <th>source_id</th>
-      <td>1.235499e+17</td>
-      <td>1.235499e+17</td>
-      <td>1.235499e+17</td>
+      <td>1.351959e+17</td>
+      <td>1.351960e+17</td>
+      <td>1.351960e+17</td>
     </tr>
     <tr>
       <th>ra</th>
-      <td>4.833770e+01</td>
-      <td>4.834184e+01</td>
-      <td>4.834453e+01</td>
+      <td>4.446955e+01</td>
+      <td>4.448767e+01</td>
+      <td>4.447735e+01</td>
     </tr>
     <tr>
       <th>dec</th>
-      <td>3.157786e+01</td>
-      <td>3.157342e+01</td>
-      <td>3.157467e+01</td>
+      <td>3.052774e+01</td>
+      <td>3.053371e+01</td>
+      <td>3.054131e+01</td>
     </tr>
     <tr>
       <th>ipx512nested</th>
-      <td>5.618400e+04</td>
-      <td>5.618400e+04</td>
-      <td>5.618400e+04</td>
+      <td>6.148000e+04</td>
+      <td>6.148000e+04</td>
+      <td>6.148000e+04</td>
     </tr>
   </tbody>
 </table>
@@ -14277,7 +14236,7 @@ Wall time: 4.05 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstarcountdf</span> <span class="o">=</span> <span class="n">rawstardf</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;ipx512nested&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">))</span>
@@ -14288,167 +14247,6 @@ Wall time: 4.05 µs
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">repdf</span> <span class="o">=</span> <span class="n">rawstarcountdf</span><span class="o">.</span><span class="n">orderBy</span><span class="p">(</span><span class="s1">&#39;ipx512nested&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 56.5 ms, sys: 105 ms, total: 161 ms
-Wall time: 3.66 s
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">repdf</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[24]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ipx512nested</th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>35</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>3145721</th>
-      <td>3145723</td>
-      <td>183</td>
-    </tr>
-    <tr>
-      <th>3145722</th>
-      <td>3145724</td>
-      <td>166</td>
-    </tr>
-    <tr>
-      <th>3145723</th>
-      <td>3145725</td>
-      <td>184</td>
-    </tr>
-    <tr>
-      <th>3145724</th>
-      <td>3145726</td>
-      <td>176</td>
-    </tr>
-    <tr>
-      <th>3145725</th>
-      <td>3145727</td>
-      <td>186</td>
-    </tr>
-  </tbody>
-</table>
-<p>3145726 rows × 2 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>There are some missing <code>ipx512nested</code> values due to zero stars in the healpix section. <br></p>
-
-<pre><code>NSIDE = 512
-NPIX = hp.nside2npix(NSIDE)
-print(NPIX)
-3145728</code></pre>
-<p><br>For this case, two missing indices when you see <code>3145725</code> vs. <code>3145727</code></p>
-</blockquote>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14458,40 +14256,7 @@ print(NPIX)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">NPIX</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3145728</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14512,8 +14277,8 @@ print(NPIX)
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 77.7 ms, sys: 77 ms, total: 155 ms
-Wall time: 2.68 s
+<pre>CPU times: user 71.2 ms, sys: 95 ms, total: 166 ms
+Wall time: 3.66 s
 </pre>
 </div>
 </div>
@@ -14524,53 +14289,7 @@ Wall time: 2.68 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#repdf</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">repdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[28]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3145726</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">RangeIndex</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">NPIX</span><span class="p">)</span>
@@ -14583,7 +14302,7 @@ Wall time: 2.68 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">filledpdf</span> <span class="o">=</span> <span class="n">repdf</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">full_index</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -14596,40 +14315,7 @@ Wall time: 2.68 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">filledpdf</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[31]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3145728</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hp</span><span class="o">.</span><span class="n">mollview</span><span class="p">(</span><span class="n">filledpdf</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Gaia DR3: Star Density (NSIDE=512)&#39;</span><span class="p">,</span><span class="n">xsize</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
@@ -14690,7 +14376,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="n">SkyCoord</span>
@@ -14711,7 +14397,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Define UDF for pyspark </span>
@@ -14725,7 +14411,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">getGalacticCoordinates</span><span class="p">(</span><span class="mf">61.181783</span><span class="p">,</span><span class="mf">16.360603</span><span class="p">)</span>
@@ -14741,7 +14427,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -14775,7 +14461,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14800,7 +14486,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fast_ecl2gal_deg</span><span class="p">(</span><span class="mf">61.181783</span><span class="p">,</span><span class="mf">16.360603</span><span class="p">)</span>
@@ -14816,7 +14502,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -14849,7 +14535,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## prerequisite variables </span>
@@ -14864,20 +14550,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#_ra_gal, _dec_gal, _long_ncp</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">equatorial_to_galactic</span><span class="p">(</span><span class="n">right_ascension</span><span class="p">,</span> <span class="n">declination</span><span class="p">,</span> \
@@ -14904,7 +14577,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">equatorial_to_galactic</span><span class="p">(</span><span class="mf">61.181783</span><span class="p">,</span> <span class="mf">16.360603</span><span class="p">)</span>
@@ -14920,7 +14593,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -14937,7 +14610,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Define UDF for pyspark </span>
@@ -14974,7 +14647,7 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -14999,8 +14672,8 @@ findfont: Font family [&#39;serif&#39;] not found. Falling back to DejaVu Sans.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 3.51 ms, sys: 0 ns, total: 3.51 ms
-Wall time: 26.9 ms
+<pre>CPU times: user 3.59 ms, sys: 0 ns, total: 3.59 ms
+Wall time: 29.1 ms
 </pre>
 </div>
 </div>
@@ -15011,7 +14684,7 @@ Wall time: 26.9 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#%%time</span>
@@ -15045,7 +14718,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">NSIDE</span> <span class="o">=</span> <span class="mi">512</span>
@@ -15078,7 +14751,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -15099,7 +14772,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
@@ -15113,7 +14786,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span> <span class="o">=</span> <span class="n">rawstardf</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">&#39;gal_ipx512nested&#39;</span><span class="p">,</span><span class="n">healpixudf</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;gal_b&#39;</span><span class="p">),</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;gal_l&#39;</span><span class="p">)))</span>
@@ -15126,7 +14799,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rawstardf</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
@@ -15142,7 +14815,7 @@ not collecting to your master(driver) node.</strong></p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[49]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -15166,7 +14839,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">outfilename</span> <span class="o">=</span> \
@@ -15180,7 +14853,7 @@ not collecting to your master(driver) node.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -15201,8 +14874,8 @@ not collecting to your master(driver) node.</strong></p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 268 ms, sys: 213 ms, total: 481 ms
-Wall time: 12min
+<pre>CPU times: user 221 ms, sys: 250 ms, total: 472 ms
+Wall time: 11min 41s
 </pre>
 </div>
 </div>
@@ -15220,7 +14893,7 @@ Wall time: 12min
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">galrawstarcountdf</span> <span class="o">=</span> <span class="n">rawstardf</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">&#39;gal_ipx512nested&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">))</span>
@@ -15233,7 +14906,7 @@ Wall time: 12min
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">RangeIndex</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">NPIX</span><span class="p">)</span>
@@ -15246,7 +14919,7 @@ Wall time: 12min
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -15269,8 +14942,8 @@ Wall time: 12min
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 132 ms, sys: 104 ms, total: 236 ms
-Wall time: 2.59 s
+<pre>CPU times: user 121 ms, sys: 122 ms, total: 243 ms
+Wall time: 2.78 s
 </pre>
 </div>
 </div>
@@ -15282,8 +14955,7 @@ Wall time: 2.59 s
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><blockquote><p>The running time for <code>galcoordfastudf</code> is <code>12min</code>,<br> while <code>galcoordudf</code> 6 hours</p>
-</blockquote>
+<blockquote><p>The running time for <code>galcoordfastudf</code> is <code>12min</code>,<br> while <code>galcoordudf</code> 6 hours</p>
 </blockquote>
 
 </div>
@@ -15291,7 +14963,7 @@ Wall time: 2.59 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hp</span><span class="o">.</span><span class="n">mollview</span><span class="p">(</span><span class="n">tmppdf</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> \
