@@ -1,7 +1,4 @@
-# misc
+# Various Topics for Data Science and Related Research
  
- See the "wiki" for tips
- 
- Repo. for various jupyter notebook examples 
-
+See the `wiki` tap for details! 
 
