@@ -345,9 +345,9 @@ def train_model(input_dim, adj_matrix, index_to_name, train_dataloader, val_data
         else:
             roc = roc_auc_score(val_labels, list_prediction)
 
-        prec = precision_score(val_labels, list_prediction, average='macro')
-        recall = recall_score(val_labels, list_prediction, average='macro')
-        f_score = f1_score(val_labels, list_prediction, average='macro')
+        prec = precision_score(val_labels, list_prediction, average='macro',zero_division=0)
+        recall = recall_score(val_labels, list_prediction, average='macro',zero_division=0)
+        f_score = f1_score(val_labels, list_prediction, average='macro',zero_division=0)
 
         acc = "{:.3f}".format(val_count / len(val_labels))
 
